@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class utama extends AppCompatActivity {
+public class Utama extends AppCompatActivity {
     Button btnSignIn, btnSignUp;
 
     @Override
@@ -22,13 +22,13 @@ public class utama extends AppCompatActivity {
         //set onClick listener on signUp button
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intentSignUp = new Intent(utama.this, signup.class);
+                Intent intentSignUp = new Intent(Utama.this, SignUp.class);
                 startActivity(intentSignUp);
             }
         });
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intentSignIn = new Intent(utama.this, login.class);
+                Intent intentSignIn = new Intent(Utama.this, Login.class);
                 startActivity(intentSignIn);
             }
         });

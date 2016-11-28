@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     LoginDatabaseAdapter loginDatabaseAdapter;
 
     @Override
@@ -30,10 +30,10 @@ public class login extends AppCompatActivity {
                 String storedPassword = loginDatabaseAdapter.getSingleEntry(username);
 
                 //check if the stored password match with password entered by user
-                if(password.equals("12345")) {
-                    Toast.makeText(login.this, "Login berhasil", Toast.LENGTH_LONG).show();
+                if(password.equals(storedPassword)) {
+                    Toast.makeText(Login.this, "Login berhasil", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(login.this, "Login gagal", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Login gagal", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 public class LoginDatabaseAdapter {
-    static final String DATABASE_NAME = "login.db";
+    static final String DATABASE_NAME = "Login.db";
     static final int DATABASE_VERSION = 1;
     static final int NAME_COLUMN = 1;
 
@@ -53,7 +53,7 @@ public class LoginDatabaseAdapter {
     }
 
     public String getSingleEntry(String username) {
-        Cursor cursor=db.query("LOGIN", null, " USERNAME=?", new String[]{username}, null, null, null);
+        Cursor cursor = db.query("LOGIN", null, " USERNAME=?", new String[]{username} , null, null, null);
         if(cursor.getCount()<1) // UserName Not Exist
         {
             cursor.close();

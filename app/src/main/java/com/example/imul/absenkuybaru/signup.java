@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class signup extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     DatabaseHelper helper = new DatabaseHelper(this);
     EditText editUserBaru, editPassBaru, editConfPassBaru;
     Button btnCreateAccount;

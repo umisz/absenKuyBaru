@@ -10,13 +10,13 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
     private static final int DATABASE_VERSION = 1;
-    static final String DATABASE_NAME = "login.db";
-    public static final String TABLE_NAME = "login";
+    static final String DATABASE_NAME = "Login.db";
+    public static final String TABLE_NAME = "Login";
     public static final String COL_UNAME =  "Uname";
     public static final String COL_PASS =  "pass";
     public static final String COL_CONFPASS = "confpass";
     SQLiteDatabase db;
-    static final String TABLE_CREATE = "create table login (name text not null, uname text not null, pass text not null);";
+    static final String TABLE_CREATE = "create table Login (name text not null, uname text not null, pass text not null);";
 
 
     public DatabaseHelper(Context context)
@@ -38,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COL_PASS, c.getPass);
         values.put(COL_CONFPASS, c.getConfpass);
 
-        db.insert(TABLE_NAME. null, values);
+        db.insert(TABLE_NAME, null, values);
         db.close();
     }
 

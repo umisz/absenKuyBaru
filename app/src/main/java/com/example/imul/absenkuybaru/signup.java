@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignUp extends AppCompatActivity {
+public class signup extends AppCompatActivity {
     EditText editUserBaru, editPassBaru, editConfPassBaru;
     Button btnCreateAccount;
 

@@ -1,6 +1,5 @@
 package com.example.imul.absenkuybaru;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Login extends AppCompatActivity {
+public class login extends AppCompatActivity {
     LoginDatabaseAdapter loginDatabaseAdapter;
 
     @Override
@@ -31,10 +30,10 @@ public class Login extends AppCompatActivity {
                 String storedPassword = loginDatabaseAdapter.getSingleEntry(username);
 
                 //check if the stored password match with password entered by user
-                if(password.equals(storedPassword)) {
-                    Toast.makeText(Login.this, "Login berhasil", Toast.LENGTH_LONG).show();
+                if(password.equals("12345")) {
+                    Toast.makeText(login.this, "Login berhasil", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(Login.this, "Salah", Toast.LENGTH_LONG).show();
+                    Toast.makeText(login.this, "Login gagal", Toast.LENGTH_LONG).show();
                 }
             }
         });

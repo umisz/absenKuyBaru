@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class signup extends AppCompatActivity {
+    DatabaseHelper helper = new DatabaseHelper(this);
     EditText editUserBaru, editPassBaru, editConfPassBaru;
     Button btnCreateAccount;
 
@@ -24,9 +25,8 @@ public class signup extends AppCompatActivity {
 
         editUserBaru = (EditText) findViewById(R.id.editUserBaru);
         editPassBaru = (EditText) findViewById(R.id.editPassBaru);
-        editConfPassBaru = (EditText) findViewById(R.id.editConfPassBaru);
-
         btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount);
+
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,8 +43,12 @@ public class signup extends AppCompatActivity {
                     return;
                 }
                 else {
-                    loginDatabaseAdapter.insertEntry(userName,password);
-                    Toast.makeText(getApplicationContext(), "Akun terdaftar", Toast.LENGTH_LONG).show();
+                   Contact c = new Contact();
+                    c.setUname(userName);
+                    c.setPass(password);
+                    c.setConfpass(confirmPass);
+
+                    helper.insertLogin(c);
                 }
             }
         });

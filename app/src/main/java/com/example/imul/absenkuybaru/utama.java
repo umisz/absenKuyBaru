@@ -1,19 +1,24 @@
 package com.example.imul.absenkuybaru;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 
 public class Utama extends AppCompatActivity {
     Button btnSignIn, btnSignUp;
+    LoginDataBaseAdapter loginDataBaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.utama);
+
+        // create a instance of SQLite Database
+        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter=loginDataBaseAdapter.open();
 
         //get the reffences of buttons
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
@@ -32,5 +37,12 @@ public class Utama extends AppCompatActivity {
                 startActivity(intentSignIn);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //close database
+        loginDataBaseAdapter.close();
     }
 }

@@ -8,41 +8,22 @@ import android.widget.Button;
 
 
 public class Utama extends AppCompatActivity {
-    Button btnSignIn, btnSignUp;
-    LoginDataBaseAdapter loginDataBaseAdapter;
+    Button btnSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.utama);
 
-        // create a instance of SQLite Database
-        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
-        loginDataBaseAdapter=loginDataBaseAdapter.open();
-
         //get the reffences of buttons
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
-        btnSignUp = (Button) findViewById(R.id.btnSignUp);
 
-        //set onClick listener on signUp button
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intentSignUp = new Intent(Utama.this, SignUp.class);
-                startActivity(intentSignUp);
-            }
-        });
+        //set onClick listener on signIn button
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intentSignIn = new Intent(Utama.this, Login.class);
                 startActivity(intentSignIn);
             }
         });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //close database
-        loginDataBaseAdapter.close();
     }
 }

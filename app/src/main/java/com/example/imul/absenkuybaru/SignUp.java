@@ -1,5 +1,6 @@
 package com.example.imul.absenkuybaru;
 
+/*
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.Toast;
  * Created by Imul on 28-Nov-16.
  */
 
+/*
 public class SignUp extends AppCompatActivity {
 
     EditText editUserBaru, editPassBaru, editConfPassBaru;
@@ -63,3 +65,4 @@ public class SignUp extends AppCompatActivity {
         loginDatabaseAdapter.close();
     }
 }
+*/

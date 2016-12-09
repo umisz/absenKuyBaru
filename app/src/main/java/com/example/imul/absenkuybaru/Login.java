@@ -13,7 +13,6 @@ import android.widget.Toast;
  */
 
 public class Login extends AppCompatActivity {
-    LoginDataBaseAdapter loginDatabaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +23,6 @@ public class Login extends AppCompatActivity {
         final EditText editTextPassword = (EditText) findViewById(R.id.txtPassword);
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
 
-        loginDatabaseAdapter = new LoginDataBaseAdapter(this);
-        loginDatabaseAdapter = loginDatabaseAdapter.open();
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,38 +30,28 @@ public class Login extends AppCompatActivity {
                 String username = editTextUserName.getText().toString();
                 String password = editTextPassword.getText().toString();
 
-                //fetch the password from database for respective username
-                String storedPassword = loginDatabaseAdapter.getSinlgeEntry(username);
-
                 //check if the stored password match with password entered by user
-                if(!password.equals(storedPassword)) {
+                if(!username.equals("Admin") && !password.equals("ddplC6")) {
 
-                    Toast.makeText(Login.this, "Login gagal", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Login gagal", Toast.LENGTH_SHORT).show();
 
                 }
 
                 else if(password.equals("") && username.equals("")) {
 
-                    Toast.makeText(Login.this, "Login gagal", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Login gagal", Toast.LENGTH_SHORT).show();
 
                 }
 
                 else {
 
-                    Toast.makeText(Login.this, "Login berhasil", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Login berhasil", Toast.LENGTH_SHORT).show();
 
-                    Intent a = new Intent(Login.this, welcome.class);
+                    Intent a = new Intent(Login.this, FormAbsen.class);
                     startActivity(a);
 
                 }
             }
         });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //close database
-        loginDatabaseAdapter.close();
     }
 }

@@ -4,6 +4,7 @@ package com.example.imul.absenkuybaru;
  * Created by ginanjarpr on 28/11/2016.
  */
 
+/*
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -109,3 +110,4 @@ public class LoginDataBaseAdapter
         db.update("LOGIN",updatedValues, where, new String[]{userName});
     }
 }
+*/

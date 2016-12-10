@@ -1,5 +1,5 @@
 package com.example.imul.absenkuybaru;
-/*
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
@@ -17,7 +17,7 @@ public class DataBaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase _db)
     {
-        _db.execSQL(MyDBHandler.DATABASE_CREATE);
+        _db.execSQL(LoginDatabaseAdapter.DATABASE_CREATE);
 
     }
     // Called when there is a database version mismatch meaning that the version
@@ -38,4 +38,3 @@ public class DataBaseHelper extends SQLiteOpenHelper
     }
 
 }
-*/

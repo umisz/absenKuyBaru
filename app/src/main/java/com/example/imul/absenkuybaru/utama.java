@@ -8,7 +8,7 @@ import android.widget.Button;
 
 
 public class Utama extends AppCompatActivity {
-    Button btnSignIn;
+    Button btnSignIn, btnCreateAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +17,19 @@ public class Utama extends AppCompatActivity {
 
         //get the reffences of buttons
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
+        btnCreateAccount = (Button) findViewById(R.id.btnCreateAccount) ;
 
         //set onClick listener on signIn button
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intentSignIn = new Intent(Utama.this, Login.class);
                 startActivity(intentSignIn);
+            }
+        });
+        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intentSignUp = new Intent(Utama.this, SignUp.class);
+                startActivity(intentSignUp);
             }
         });
     }

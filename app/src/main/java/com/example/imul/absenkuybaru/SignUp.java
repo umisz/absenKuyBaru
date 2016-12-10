@@ -1,6 +1,6 @@
 package com.example.imul.absenkuybaru;
 
-/*
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,20 +13,19 @@ import android.widget.Toast;
  * Created by Imul on 28-Nov-16.
  */
 
-/*
 public class SignUp extends AppCompatActivity {
 
     EditText editUserBaru, editPassBaru, editConfPassBaru;
     Button btnCreateAccount;
 
-    LoginDataBaseAdapter loginDatabaseAdapter;
+    LoginDatabaseAdapter loginDatabaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
-        loginDatabaseAdapter = new LoginDataBaseAdapter(this);
+        loginDatabaseAdapter = new LoginDatabaseAdapter(this);
         loginDatabaseAdapter = loginDatabaseAdapter.open();
 
         editUserBaru = (EditText) findViewById(R.id.editUserBaru);
@@ -65,4 +64,3 @@ public class SignUp extends AppCompatActivity {
         loginDatabaseAdapter.close();
     }
 }
-*/

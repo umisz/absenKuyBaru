@@ -4,22 +4,26 @@ package com.example.imul.absenkuybaru;
 /**
  * Created by Imul on 03-Dec-16.
  */
-
+/*
 
 public class Absen {
     private int _id;
     private String _namaAng;
     private String _kyu;
     private String _tglAbsen;
+    private String _nrp;
+    private String _telat;
 
     public Absen() {
 
     }
 
-    public Absen(String namaAng, String kyu, String tglAbsen) {
+    public Absen(String namaAng, String kyu, String nrp, String telat, String tglAbsen) {
         this._namaAng = namaAng;
         this._kyu = kyu;
         this._tglAbsen = tglAbsen;
+        this._nrp = nrp;
+        this._telat = telat;
     }
 
     public int get_id() {
@@ -53,4 +57,21 @@ public class Absen {
     public void set_tglAbsen(String _tglAbsen) {
         this._tglAbsen = _tglAbsen;
     }
+
+    public String get_nrp() {
+        return _nrp;
+    }
+
+    public void set_nrp(String _nrp) {
+        this._nrp = _nrp;
+    }
+
+    public String get_telat() {
+        return _telat;
+    }
+
+    public void set_telat(String _telat) {
+        this._telat = _telat;
+    }
 }
+*/

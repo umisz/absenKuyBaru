@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">AbsenKuyBaru</string>
+    <string name="kyu_prompt">Pilih tingkatan sabuk</string>
+
+    <string-array name="kyu_arrays">
+        <item>Putih</item>
+        <item>Kuning</item>
+        <item>Hijau</item>
+        <item>Biru muda</item>
+        <item>Biru tua</item>
+        <item>Coklat muda</item>
+        <item>Coklat tua</item>
+    </string-array>
 </resources>

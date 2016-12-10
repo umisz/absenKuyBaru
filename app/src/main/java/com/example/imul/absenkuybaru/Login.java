@@ -13,7 +13,7 @@ import android.widget.Toast;
  */
 
 public class Login extends AppCompatActivity {
-
+    LoginDatabaseAdapter loginDatabaseAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,18 +23,20 @@ public class Login extends AppCompatActivity {
         final EditText editTextPassword = (EditText) findViewById(R.id.txtPassword);
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
 
+        loginDatabaseAdapter = new LoginDatabaseAdapter(this);
+        loginDatabaseAdapter = loginDatabaseAdapter.open();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //get the username & password
                 String username = editTextUserName.getText().toString();
                 String password = editTextPassword.getText().toString();
+                String storedpassword = loginDatabaseAdapter.getSinlgeEntry(username);
 
                 //check if the stored password match with password entered by user
-                if(!username.equals("Admin") && !password.equals("ddplC6")) {
-
+                if(!password.equals(storedpassword)) {
                     Toast.makeText(Login.this, "Login gagal", Toast.LENGTH_SHORT).show();
-
                 }
 
                 else if(password.equals("") && username.equals("")) {

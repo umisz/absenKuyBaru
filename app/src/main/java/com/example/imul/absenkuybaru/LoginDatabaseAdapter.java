@@ -4,34 +4,48 @@ package com.example.imul.absenkuybaru;
  * Created by ginanjarpr on 28/11/2016.
  */
 
-/*
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-public class LoginDataBaseAdapter
+public class LoginDatabaseAdapter
 {
     static final String DATABASE_NAME = "login.db";
     static final int DATABASE_VERSION = 1;
     public static final int NAME_COLUMN = 1;
+    private static final String TABLE_PRODUCTS="absen";
+    private static final String COLUMN_ID="id";
+    private static final String COLUMN_NAMAANG="namaang";
+    private static final String COLUMN_NRP="nrp";
+    private static final String COLUMN_TELAT="telat";
+    private static final String COLUMN_KYU="kyu";
+    private static final String COLUMN_TGLABSEN="tglabsen";
+
     // TODO: Create public field for each column in your table.
     // SQL Statement to create a new database.
     static final String DATABASE_CREATE = "create table "+"LOGIN"+
             "( " +"ID"+" integer primary key autoincrement,"+ "USERNAME  text,PASSWORD text); ";
+    public void onCreate(SQLiteDatabase db) {
+
+        String query = " CREATE TABLE " + TABLE_PRODUCTS + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAMAANG + " TEXT," + COLUMN_NRP + " TEXT," + COLUMN_KYU + " TEXT," + COLUMN_TELAT + " TEXT," + COLUMN_TGLABSEN + " TEXT" + ");";
+        db.execSQL(query);
+    }
+
     // Variable to hold the database instance
     public  SQLiteDatabase db;
     // Context of the application using the database.
     private final Context context;
     // Database open/upgrade helper
     private DataBaseHelper dbHelper;
-    public  LoginDataBaseAdapter(Context _context)
+    public  LoginDatabaseAdapter(Context _context)
     {
         context = _context;
         dbHelper = new DataBaseHelper(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-    public  LoginDataBaseAdapter open() throws SQLException
+    public  LoginDatabaseAdapter open() throws SQLException
     {
         db = dbHelper.getWritableDatabase();
         return this;
@@ -109,5 +123,19 @@ public class LoginDataBaseAdapter
         String where="USERNAME = ?";
         db.update("LOGIN",updatedValues, where, new String[]{userName});
     }
+    public void addProduct(String namaAng, String nrp, String kyu, String telat, String tglAbsen) {
+
+        db=dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_NAMAANG, namaAng);
+        values.put(COLUMN_NRP, nrp);
+        values.put(COLUMN_KYU, kyu);
+        values.put(COLUMN_TELAT, telat);
+        values.put(COLUMN_TGLABSEN, tglAbsen);
+
+        db.insert(TABLE_PRODUCTS, null, values);
+        db.close();
+
+    }
 }
-*/

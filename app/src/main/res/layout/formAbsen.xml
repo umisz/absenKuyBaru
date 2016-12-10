@@ -11,7 +11,7 @@
     tools:context="com.example.imul.absenkuybaru.FormAbsen">
 
     <TextView
-        android:text="Masukkan identitas diri :"
+        android:text="Isi form absen :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="78dp"
@@ -29,17 +29,25 @@
         android:layout_marginTop="20dp"
         android:id="@+id/namaAng"
         android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/kyu"
-        android:layout_alignStart="@+id/kyu" />
-
-
+        android:layout_alignLeft="@+id/spinnerKyu"
+        android:layout_alignStart="@+id/spinnerKyu" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Kyu"
+        android:hint="NRP"
         android:ems="10"
-        android:id="@+id/kyu"
+        android:id="@+id/nrp"
         android:layout_below="@+id/namaAng"
+        android:layout_alignLeft="@+id/spinnerKyu"
+        android:layout_alignStart="@+id/spinnerKyu" />
+
+    <Spinner
+        android:id="@+id/spinnerKyu"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nrp"
+        android:entries="@array/kyu_arrays"
+        android:prompt="@string/kyu_prompt"
         android:layout_centerHorizontal="true"/>
 
 
@@ -50,7 +58,8 @@
         android:ems="10"
         android:id="@+id/tglAbsen"
         android:hint="dd/mm/yyyy"
-        android:layout_below="@+id/kyu"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rg"
         android:layout_centerHorizontal="true"/>
 
     <Button
@@ -61,6 +70,32 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:id="@+id/btnAbsen"/>
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/spinnerKyu"
+        android:layout_alignLeft="@+id/spinnerKyu"
+        android:layout_alignStart="@+id/spinnerKyu"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:text="Tepat waktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tepatwaktu"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Terlambat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/terlambat"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+
 
 
 </RelativeLayout>

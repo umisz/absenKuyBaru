@@ -109,7 +109,7 @@ public class LoginDatabaseAdapter extends SQLiteOpenHelper {
 
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                "yyyy-MM-dd", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
@@ -170,11 +170,12 @@ public class LoginDatabaseAdapter extends SQLiteOpenHelper {
 
         return c;
     }
-    public Cursor hitungJumlah(String nrp) {
-        String t = "tepat waktu";
+
+    public Cursor getJumlah(String tgl) {
         SQLiteDatabase db;
         db = this.getWritableDatabase();
-        Cursor d = db.rawQuery("SELECT status FROM absen WHERE TRIM(nrp) like '"+nrp.trim()+"' AND TRIM(status) like '"+t.trim()+"'", null);
+        Cursor d = db.rawQuery("SELECT * FROM absen WHERE " + KEY_CREATED_AT + " like '" + tgl+"'", null);
+
         return d;
     }
 }

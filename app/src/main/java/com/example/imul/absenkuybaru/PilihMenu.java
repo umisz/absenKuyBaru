@@ -27,7 +27,7 @@ public class PilihMenu extends AppCompatActivity {
         cekAbsen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent b = new Intent(PilihMenu.this, CekAbsensi.class);
+                Intent b = new Intent(PilihMenu.this, CekAbsen.class);
                 startActivity(b);
             }
         });

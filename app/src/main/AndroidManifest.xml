@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoapp1"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -18,8 +18,10 @@
         <activity android:name=".Login" />
         <activity android:name=".SignUp" />
         <activity android:name=".FormAbsen" />
-        <activity android:name=".CekAbsensi" />
-        <activity android:name=".PilihMenu"></activity>
+        <activity android:name=".CekAbsensiNRP" />
+        <activity android:name=".PilihMenu" />
+        <activity android:name=".CekAbsen" />
+        <activity android:name=".CekAbsensiTgl"></activity>
     </application>
 
 </manifest>

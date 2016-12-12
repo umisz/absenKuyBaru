@@ -1,47 +1,38 @@
 package com.example.imul.absenkuybaru;
 
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.database.Cursor;
 import android.widget.Toast;
 
-import java.util.List;
-
-import static android.view.View.*;
-
-
-public class CekAbsensi extends AppCompatActivity {
-
-    Button btnCekAbsen;
-    EditText etNRP;
-    TextView txtNamaa, txtJml;
+public class CekAbsensiTgl extends AppCompatActivity {
     LoginDatabaseAdapter loginDatabaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cek_absensi);
-
-        btnCekAbsen = (Button) findViewById(R.id.btnCekAbsen);
-        etNRP = (EditText) findViewById(R.id.etNrp);
-        txtNamaa = (TextView) findViewById(R.id.namaAbsensi);
-        txtJml = (TextView) findViewById(R.id.jmlAbsensi);
+        setContentView(R.layout.activity_cek_absensi_tgl);
+        Button btnCekAbsenTgl = (Button) findViewById(R.id.btnCekAbsenTgl);
+        final EditText inputTgl = (EditText) findViewById(R.id.inputTgl);
+        final TextView txtAbsenTgl = (TextView) findViewById(R.id.txtAbsenTgl);
 
         loginDatabaseAdapter = new LoginDatabaseAdapter(this);
         loginDatabaseAdapter = loginDatabaseAdapter.open();
+        txtAbsenTgl.setMovementMethod(new ScrollingMovementMethod());
 
-        btnCekAbsen.setOnClickListener(new View.OnClickListener() {
+        btnCekAbsenTgl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String nrp = etNRP.getText().toString();
-                Cursor c = loginDatabaseAdapter.getDetails(nrp);
+                String tgl = inputTgl.getText().toString();
+                Cursor c = loginDatabaseAdapter.getJumlah(tgl);
                 if(c.getCount() == 0) {
                     Toast.makeText(getApplicationContext(), "Error, nothing found", Toast.LENGTH_SHORT).show();
+                    txtAbsenTgl.setText("Not found");
                     return;
                 }
 
@@ -55,12 +46,10 @@ public class CekAbsensi extends AppCompatActivity {
                     sb1.append("Status : " + c.getString(4) +"\n");
                     sb1.append("Waktu Absen : " + c.getString(5) +"\n");
 
-                    txtNamaa.setText(sb1);
+                    txtAbsenTgl.setText(sb1);
 
                 }
-
             }
         });
-
     }
 }

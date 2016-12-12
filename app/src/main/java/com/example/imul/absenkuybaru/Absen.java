@@ -4,25 +4,24 @@ package com.example.imul.absenkuybaru;
 /**
  * Created by Imul on 03-Dec-16.
  */
-/*
+
 
 public class Absen {
-    private int _id;
-    private String _namaAng;
-    private String _kyu;
-    private String _tglAbsen;
-    private String _nrp;
-    private String _telat;
+    int _id;
+    String _namaAng;
+    String _kyu;
+    String _nrp;
+    String _telat;
+    String _created_at;
 
     public Absen() {
 
     }
 
-    public Absen(String namaAng, String kyu, String nrp, String telat, String tglAbsen) {
+    public Absen(String namaAng, String nrp, String kyu, String telat) {
         this._namaAng = namaAng;
-        this._kyu = kyu;
-        this._tglAbsen = tglAbsen;
         this._nrp = nrp;
+        this._kyu = kyu;
         this._telat = telat;
     }
 
@@ -38,6 +37,10 @@ public class Absen {
         return _namaAng;
     }
 
+    public void setCreatedAt(String created_at){
+        this._created_at = created_at;
+    }
+
     public void set_namaAng(String _namaAng) {
         this._namaAng = _namaAng;
     }
@@ -48,14 +51,6 @@ public class Absen {
 
     public void set_kyu(String _kyu) {
         this._kyu = _kyu;
-    }
-
-    public String get_tglAbsen() {
-        return _tglAbsen;
-    }
-
-    public void set_tglAbsen(String _tglAbsen) {
-        this._tglAbsen = _tglAbsen;
     }
 
     public String get_nrp() {
@@ -74,4 +69,3 @@ public class Absen {
         this._telat = _telat;
     }
 }
-*/

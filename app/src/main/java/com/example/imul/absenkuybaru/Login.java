@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     LoginDatabaseAdapter loginDatabaseAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class Login extends AppCompatActivity {
 
                     Toast.makeText(Login.this, "Login berhasil", Toast.LENGTH_SHORT).show();
 
-                    Intent a = new Intent(Login.this, FormAbsen.class);
+                    Intent a = new Intent(Login.this, PilihMenu.class);
                     startActivity(a);
 
                 }

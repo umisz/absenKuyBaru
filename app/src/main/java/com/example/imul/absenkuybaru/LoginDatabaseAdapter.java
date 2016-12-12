@@ -1,53 +1,75 @@
 package com.example.imul.absenkuybaru;
 
-/**
- * Created by ginanjarpr on 28/11/2016.
- */
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
-public class LoginDatabaseAdapter
-{
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+public class LoginDatabaseAdapter extends SQLiteOpenHelper {
     static final String DATABASE_NAME = "login.db";
     static final int DATABASE_VERSION = 1;
     public static final int NAME_COLUMN = 1;
-    private static final String TABLE_PRODUCTS="absen";
-    private static final String COLUMN_ID="id";
-    private static final String COLUMN_NAMAANG="namaang";
-    private static final String COLUMN_NRP="nrp";
-    private static final String COLUMN_TELAT="telat";
-    private static final String COLUMN_KYU="kyu";
-    private static final String COLUMN_TGLABSEN="tglabsen";
+    private static final String TABLE_ABSEN = "absen";
+
+    private static final String KEY_ID = "id";
+    private static final String KEY_CREATED_AT = "created_at";
+
+    private static final String KEY_NAMA = "nama";
+    public static final String KEY_NRP = "NRP";
+    public static final String KEY_KYU = "kyu";
+    private static final String KEY_STATUS = "status";
+
+
 
     // TODO: Create public field for each column in your table.
     // SQL Statement to create a new database.
-    static final String DATABASE_CREATE = "create table "+"LOGIN"+
+    static final String TABLE_LOGIN = "create table "+"LOGIN"+
             "( " +"ID"+" integer primary key autoincrement,"+ "USERNAME  text,PASSWORD text); ";
+
+    private static final String CREATE_TABLE_ABSEN = "CREATE TABLE "
+            + TABLE_ABSEN + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
+            + KEY_NAMA + " TEXT,"
+            + KEY_NRP+ " TEXT,"
+            + KEY_KYU + " TEXT,"
+            + KEY_STATUS + " TEXT,"
+            + KEY_CREATED_AT + " DATETIME" + ");";
+
+
+    public  SQLiteDatabase db;
+
+    public LoginDatabaseAdapter(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String query = " CREATE TABLE " + TABLE_PRODUCTS + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAMAANG + " TEXT," + COLUMN_NRP + " TEXT," + COLUMN_KYU + " TEXT," + COLUMN_TELAT + " TEXT," + COLUMN_TGLABSEN + " TEXT" + ");";
-        db.execSQL(query);
+        // creating required tables
+        db.execSQL(TABLE_LOGIN);
+        db.execSQL(CREATE_TABLE_ABSEN);
     }
 
-    // Variable to hold the database instance
-    public  SQLiteDatabase db;
-    // Context of the application using the database.
-    private final Context context;
-    // Database open/upgrade helper
-    private DataBaseHelper dbHelper;
-    public  LoginDatabaseAdapter(Context _context)
-    {
-        context = _context;
-        dbHelper = new DataBaseHelper(context, DATABASE_NAME, null, DATABASE_VERSION);
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // on upgrade drop older tables
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGIN);
+        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_ABSEN);
+
+        onCreate(db);
     }
+
     public  LoginDatabaseAdapter open() throws SQLException
     {
-        db = dbHelper.getWritableDatabase();
+        db = getWritableDatabase();
         return this;
     }
     public void close()
@@ -60,8 +82,7 @@ public class LoginDatabaseAdapter
         return db;
     }
 
-    public void insertEntry(String userName,String password)
-    {
+    public void insertEntry(String userName,String password) {
         ContentValues newValues = new ContentValues();
         // Assign values for each row.
         newValues.put("USERNAME", userName);
@@ -70,6 +91,27 @@ public class LoginDatabaseAdapter
         // Insert the row into your table
         db.insert("LOGIN", null, newValues);
         ///Toast.makeText(context, "Reminder Is Successfully Saved", Toast.LENGTH_LONG).show();
+    }
+
+    public void createAbsen(Absen absen) {
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAMA, absen.get_namaAng());
+        values.put(KEY_NRP, absen.get_nrp());
+        values.put(KEY_KYU, absen.get_kyu());
+        values.put(KEY_STATUS, absen.get_telat());
+        values.put(KEY_CREATED_AT, getDateTime());
+
+        db.insert("absen", null, values);
+
+        System.out.println(absen.get_namaAng());
+    }
+
+    private String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
     //////////METHOD INI ANUEN YA ELS AKU LUPA QUERYNYA
@@ -91,16 +133,14 @@ public class LoginDatabaseAdapter
     }
     //////////METHOD INI ANUEN YA ELS AKU LUPA QUERYNYA
 
-    public int deleteEntry(String UserName)
-    {
+    public int deleteEntry(String UserName) {
         //String id=String.valueOf(ID);
         String where="USERNAME=?";
         int numberOFEntriesDeleted= db.delete("LOGIN", where, new String[]{UserName}) ;
         // Toast.makeText(context, "Number fo Entry Deleted Successfully : "+numberOFEntriesDeleted, Toast.LENGTH_LONG).show();
         return numberOFEntriesDeleted;
     }
-    public String getSinlgeEntry(String userName)
-    {
+    public String getSinlgeEntry(String userName) {
         Cursor cursor=db.query("LOGIN", null, " USERNAME=?", new String[]{userName}, null, null, null);
         if(cursor.getCount()<1) // UserName Not Exist
         {
@@ -112,8 +152,7 @@ public class LoginDatabaseAdapter
         cursor.close();
         return password;
     }
-    public void  updateEntry(String userName,String password)
-    {
+    public void  updateEntry(String userName,String password) {
         // Define the updated row content.
         ContentValues updatedValues = new ContentValues();
         // Assign values for each row.
@@ -123,19 +162,20 @@ public class LoginDatabaseAdapter
         String where="USERNAME = ?";
         db.update("LOGIN",updatedValues, where, new String[]{userName});
     }
-    public void addProduct(String namaAng, String nrp, String kyu, String telat, String tglAbsen) {
 
-        db=dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
+    public Cursor getDetails(String nrp) {
+        SQLiteDatabase db;
+        db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM absen WHERE TRIM(nrp) like '"+nrp.trim()+"'", null);
 
-        values.put(COLUMN_NAMAANG, namaAng);
-        values.put(COLUMN_NRP, nrp);
-        values.put(COLUMN_KYU, kyu);
-        values.put(COLUMN_TELAT, telat);
-        values.put(COLUMN_TGLABSEN, tglAbsen);
-
-        db.insert(TABLE_PRODUCTS, null, values);
-        db.close();
-
+        return c;
+    }
+    public Cursor hitungJumlah(String nrp) {
+        String t = "tepat waktu";
+        SQLiteDatabase db;
+        db = this.getWritableDatabase();
+        Cursor d = db.rawQuery("SELECT status FROM absen WHERE TRIM(nrp) like '"+nrp.trim()+"' AND TRIM(status) like '"+t.trim()+"'", null);
+        return d;
     }
 }
+

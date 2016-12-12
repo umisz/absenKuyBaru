@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".Login" />
         <activity android:name=".SignUp" />
-        <activity android:name=".FormAbsen"></activity>
+        <activity android:name=".FormAbsen" />
+        <activity android:name=".CekAbsensi" />
+        <activity android:name=".PilihMenu"></activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class FormAbsen extends AppCompatActivity {
 
-    EditText inputNama, inputKyu, inputTgl, inputNRP;
+    EditText inputNama, inputTgl, inputNRP;
     private Button btnAbsen;
     private Spinner spinnerKyu;
     private RadioGroup radioGroup;
@@ -24,6 +24,8 @@ public class FormAbsen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formabsen);
 
+        loginDatabaseAdapter = new LoginDatabaseAdapter(this);
+        loginDatabaseAdapter = loginDatabaseAdapter.open();
 
         inputNama = (EditText) findViewById(R.id.namaAng);
         inputTgl = (EditText) findViewById(R.id.tglAbsen);
@@ -35,9 +37,6 @@ public class FormAbsen extends AppCompatActivity {
         radioButton = (RadioButton) findViewById(selectedId);
 
 
-        loginDatabaseAdapter = new LoginDatabaseAdapter(this);
-        loginDatabaseAdapter = loginDatabaseAdapter.open();
-
 
         btnAbsen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,20 +44,23 @@ public class FormAbsen extends AppCompatActivity {
                 String namaAng = inputNama.getText().toString();
                 String nrp = inputNRP.getText().toString();
                 String kyu = spinnerKyu.getSelectedItem().toString();
-                String tglAbsen = inputTgl.getText().toString();
-                String radioBtn = radioButton.getText().toString();
-                System.out.println(radioBtn);
 
+
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                radioButton = (RadioButton) findViewById(selectedId);
+                String status = radioButton.getText().toString();
 
                 System.out.println(namaAng);
-                System.out.println(tglAbsen);
+                System.out.println(kyu);
+                System.out.println(nrp);
+                System.out.println(status);
 
 
-                if (!namaAng.equals("") && !kyu.equals("") && !tglAbsen.equals("")) {
-
-                    //loginDatabaseAdapter.addProduct(namaAng, nrp, kyu, radioBtn, tglAbsen);
+                if (!namaAng.equals("") && !nrp.equals("") && !kyu.equals("") && !status.equals("")) {
+                    Absen absen = new Absen(namaAng, nrp, kyu, status);
+                    loginDatabaseAdapter.createAbsen(absen);
                     Toast.makeText(getApplicationContext(), "Absensi berhasil"
-                            + "\n Spinner Kyu : " + kyu + "\n Status : " + radioBtn, Toast.LENGTH_SHORT).show();
+                            + "\n Spinner Kyu : " + kyu, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Semua kolom wajib diisi", Toast.LENGTH_SHORT).show();
                 }

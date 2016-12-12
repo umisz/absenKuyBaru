@@ -1,8 +1,10 @@
 package com.example.imul.absenkuybaru;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -10,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class FormAbsen extends AppCompatActivity {
+public class FormAbsen extends Activity {
 
     EditText inputNama, inputTgl, inputNRP;
     private Button btnAbsen;
@@ -22,13 +24,13 @@ public class FormAbsen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.formabsen);
 
         loginDatabaseAdapter = new LoginDatabaseAdapter(this);
         loginDatabaseAdapter = loginDatabaseAdapter.open();
 
         inputNama = (EditText) findViewById(R.id.namaAng);
-        inputTgl = (EditText) findViewById(R.id.tglAbsen);
         inputNRP = (EditText) findViewById(R.id.nrp);
         btnAbsen = (Button) findViewById(R.id.btnAbsen);
         spinnerKyu = (Spinner) findViewById(R.id.spinnerKyu);

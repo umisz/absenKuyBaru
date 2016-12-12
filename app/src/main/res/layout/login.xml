@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -8,26 +8,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/putihbulet"
     tools:context="com.example.imul.absenkuybaru.Login"
     android:gravity="center"
     android:orientation="vertical">
 
     <EditText
+        android:textColor="@color/ijotua"
         android:id="@+id/txtUsername"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="Username"/>
+        android:hint="Username"
+        android:layout_alignLeft="@+id/txtPassword"
+        android:layout_alignStart="@+id/txtPassword" />
+
     <EditText
+
         android:id="@+id/txtPassword"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:inputType="textPassword"
-        android:hint="Password"/>
+        android:textColor="@color/ijotua"
+        android:hint="Password"
+        android:layout_below="@+id/txtUsername"
+        android:layout_centerHorizontal="true" />
+
     <Button
+        android:background="@color/ijolingkaran"
+        android:textColor="@color/ijotua"
         android:text="Login"
         android:id="@+id/btnLogin"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:text="Login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="40sp"
+        android:layout_marginBottom="32dp"
+        android:textStyle="normal|bold"
+        android:layout_above="@+id/txtUsername"
+        android:layout_alignLeft="@+id/txtUsername"
+        android:layout_alignStart="@+id/txtUsername"
+        android:textColor="@color/birugaris" />
+</RelativeLayout>

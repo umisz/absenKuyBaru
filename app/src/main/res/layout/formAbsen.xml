@@ -10,17 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.imul.absenkuybaru.FormAbsen">
 
-    <TextView
-        android:text="Isi form absen :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="78dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="80dp"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true" />
-
     <EditText
+        android:textColor="@color/ijotua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -32,6 +23,7 @@
         android:layout_alignLeft="@+id/spinnerKyu"
         android:layout_alignStart="@+id/spinnerKyu" />
     <EditText
+        android:textColor="@color/ijotua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="NRP"
@@ -42,6 +34,8 @@
         android:layout_alignStart="@+id/spinnerKyu" />
 
     <Spinner
+        android:textColor="@color/ijotua"
+        android:layout_marginTop="5dp"
         android:id="@+id/spinnerKyu"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
@@ -51,24 +45,15 @@
         android:layout_centerHorizontal="true"/>
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/tglAbsen"
-        android:hint="dd/mm/yyyy"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/rg"
-        android:layout_centerHorizontal="true"/>
-
     <Button
+        android:background="@color/ijolingkaran"
+        android:textColor="@color/ijotua"
         android:text="Submit"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tglAbsen"
+        android:layout_below="@+id/rg"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/btnAbsen"/>
 
     <RadioGroup
@@ -81,6 +66,8 @@
         android:layout_height="wrap_content" >
 
         <RadioButton
+            android:textColor="@color/ijotua"
+            android:layout_marginTop="5dp"
             android:text="Tepat waktu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,14 +75,27 @@
             android:layout_weight="1" />
 
         <RadioButton
+            android:textColor="@color/ijotua"
             android:text="Terlambat"
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/terlambat"
             android:layout_weight="1" />
     </RadioGroup>
 
-
+    <TextView
+        android:textColor="@color/birugaris"
+        android:text="Form Absen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/namaAng"
+        android:layout_alignStart="@+id/namaAng"
+        android:textSize="30sp"
+        android:textStyle="normal|bold" />
 
 
 </RelativeLayout>

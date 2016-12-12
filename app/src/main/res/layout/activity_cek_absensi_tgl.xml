@@ -10,56 +10,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.imul.absenkuybaru.CekAbsensiTgl">
 
-    <TextView
-        android:text="Masukkan tanggal absensi :"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="55dp"
-        android:id="@+id/textView4" />
-
     <EditText
-        android:layout_width="wrap_content"
+        android:textColor="@color/ijotua"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
         android:layout_below="@+id/textView4"
         android:layout_alignLeft="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:hint="yyyy-mm-dd"
         android:id="@+id/inputTgl" />
 
     <Button
         android:text="Cek Absensi"
-        android:layout_width="wrap_content"
+        android:background="@color/ijolingkaran"
+        android:textColor="@color/birugaris"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/inputTgl"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/btnCekAbsenTgl" />
 
     <TextView
+        android:textColor="@color/merahbata"
         android:text="Hasil Absensi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnCekAbsenTgl"
         android:layout_alignLeft="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
-        android:layout_marginTop="10dp"
-        android:id="@+id/txtHasil" />
+        android:layout_marginTop="40dp"
+        android:id="@+id/txtHasil"
+        android:textSize="14sp"
+        android:textStyle="normal|bold|italic" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:textSize="14sp"
+        android:textColor="@color/ijotua"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtHasil"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/txtAbsenTgl"
         android:scrollbars = "vertical"/>
+
+    <TextView
+        android:textColor="@color/birugaris"
+        android:text="Masukkan tanggal absensi :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:id="@+id/textView4"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

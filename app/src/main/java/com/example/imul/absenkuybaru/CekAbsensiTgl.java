@@ -1,22 +1,27 @@
 package com.example.imul.absenkuybaru;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CekAbsensiTgl extends AppCompatActivity {
+public class CekAbsensiTgl extends Activity {
     LoginDatabaseAdapter loginDatabaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cek_absensi_tgl);
+
+
         Button btnCekAbsenTgl = (Button) findViewById(R.id.btnCekAbsenTgl);
         final EditText inputTgl = (EditText) findViewById(R.id.inputTgl);
         final TextView txtAbsenTgl = (TextView) findViewById(R.id.txtAbsenTgl);
@@ -44,7 +49,7 @@ public class CekAbsensiTgl extends AppCompatActivity {
                     sb1.append("NRP : " + c.getString(2) +"\n");
                     sb1.append("KYU : " + c.getString(3) +"\n");
                     sb1.append("Status : " + c.getString(4) +"\n");
-                    sb1.append("Waktu Absen : " + c.getString(5) +"\n");
+                    sb1.append("Waktu Absen : " + c.getString(5) +"\n \n");
 
                     txtAbsenTgl.setText(sb1);
 

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="ijolingkaran">#c8f9ea</color>
+    <color name="ijotua">#1D8370</color>
+    <color name="ijooo">#34A28C</color>
+    <color name="ijopapan">#3DBCA3</color>
+    <color name="ijocheck">#35AA92</color>
+    <color name="abu2tua">#7E8D92</color>
+    <color name="abu2muda">#91A2A7</color>
+    <color name="putihform">#F6F5F4</color>
+    <color name="putihbulet">#FEFEFE</color>
+    <color name="birugaris">#2489a6</color>
+    <color name="kuningbulet">#FFF9A8</color>
+    <color name="softpink">#FF6987</color>
+    <color name="birumuda">#9EEDFF</color>
+    <color name="kuningstrong">#FFE312</color>
+    <color name="merahbata">#A62424</color>
 </resources>

@@ -11,19 +11,23 @@
     tools:context="com.example.imul.absenkuybaru.CekAbsensiNRP">
 
     <TextView
-        android:text="Masukkan nrp :"
+        android:textColor="@color/birugaris"
+        android:text="Cek Absensi NRP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp" />
+        android:layout_marginStart="49dp"
+        android:textSize="25sp"
+        android:textStyle="normal|bold" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:textColor="@color/ijotua"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
@@ -36,31 +40,40 @@
 
     <TextView
         android:text=""
-        android:layout_width="wrap_content"
+        android:layout_alignLeft="@+id/etNrp"
+        android:layout_alignStart="@+id/etNrp"
+        android:textColor="@color/ijotua"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:id="@+id/namaAbsensi"
         android:layout_below="@+id/btnCekAbsenNrp"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:id="@+id/jmlAbsensi"
-        android:layout_below="@id/namaAbsensi"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="14sp"/>
 
 
 
     <Button
         android:text="Cek Absensi"
-        android:layout_width="wrap_content"
+        android:background="@color/ijolingkaran"
+        android:textColor="@color/ijotua"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/btnCekAbsenNrp"
         android:layout_below="@+id/etNrp"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:textColor="@color/merahbata"
+        android:text="Hasil Absensi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/txtHasil"
+        android:textSize="14sp"
+        android:textStyle="normal|bold|italic"
+        android:layout_below="@+id/btnCekAbsenNrp"
+        android:layout_alignLeft="@+id/etNrp"
+        android:layout_alignStart="@+id/etNrp" />
 </RelativeLayout>

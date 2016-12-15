@@ -2,18 +2,25 @@ package com.example.imul.absenkuybaru;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class PilihMenu extends Activity {
+    LoginDatabaseAdapter loginDatabaseAdapter;
+    LoginBaru loginBaru;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        loginDatabaseAdapter = new LoginDatabaseAdapter(this);
+        loginDatabaseAdapter = loginDatabaseAdapter.open();
 
         setContentView(R.layout.activity_pilih_menu);
 

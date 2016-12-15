@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class LoginDatabaseAdapter extends SQLiteOpenHelper {
+
+    LoginBaru loginBaru;
+
     static final String DATABASE_NAME = "login.db";
     static final int DATABASE_VERSION = 1;
     public static final int NAME_COLUMN = 1;
@@ -82,11 +85,11 @@ public class LoginDatabaseAdapter extends SQLiteOpenHelper {
         return db;
     }
 
-    public void insertEntry(String userName,String password) {
+    public void insertEntry(LoginBaru loginBaru) {
         ContentValues newValues = new ContentValues();
         // Assign values for each row.
-        newValues.put("USERNAME", userName);
-        newValues.put("PASSWORD",password);
+        newValues.put("USERNAME", loginBaru.getUserName());
+        newValues.put("PASSWORD", loginBaru.getPassword());
 
         // Insert the row into your table
         db.insert("LOGIN", null, newValues);

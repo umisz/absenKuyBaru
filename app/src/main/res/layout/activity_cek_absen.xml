@@ -12,7 +12,7 @@
 
     <Button
         android:background="@color/ijolingkaran"
-        android:textColor="@color/birugaris"
+        android:textColor="@color/ijotua"
         android:layout_centerHorizontal="true"
         android:text="Tanggal"
         android:layout_width="150dp"
@@ -24,7 +24,7 @@
     <Button
         android:background="@color/ijolingkaran"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/birugaris"
+        android:textColor="@color/ijotua"
         android:text="NRP"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         android:layout_below="@+id/textView3" />
 
     <TextView
-        android:textColor="@color/ijotua"
+        android:textColor="@color/birugaris"
         android:text="Cek absen berdasarkan :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

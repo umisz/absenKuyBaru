@@ -24,6 +24,7 @@
         style="@style/Widget.AppCompat.Button" />
 
     <EditText
+        android:textColor="@color/ijotua"
         android:id="@+id/editUserBaru"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
     </EditText>
 
     <EditText
+        android:textColor="@color/ijotua"
         android:id="@+id/editPassBaru"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -43,19 +45,6 @@
         android:layout_below="@+id/editUserBaru"
         android:layout_alignLeft="@+id/editUserBaru"
         android:layout_alignStart="@+id/editUserBaru" />
-
-    <TextView
-        android:text="Sign Up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textSize="40sp"
-        android:textStyle="normal|bold"
-        android:textColor="@color/ijotua"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editUserBaru"
-        android:layout_alignStart="@+id/editUserBaru"
-        android:layout_marginTop="80dp" />
 
     <EditText
         android:id="@+id/editConfPassBaru"
@@ -66,5 +55,18 @@
         android:layout_below="@+id/editPassBaru"
         android:layout_alignLeft="@+id/editPassBaru"
         android:layout_alignStart="@+id/editPassBaru" />
+
+    <TextView
+        android:text="Sign Up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="40sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/birugaris"
+        android:layout_marginTop="78dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editUserBaru"
+        android:layout_alignStart="@+id/editUserBaru" />
 
 </RelativeLayout>

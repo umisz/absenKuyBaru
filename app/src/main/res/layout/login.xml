@@ -50,10 +50,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
         android:textSize="40sp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="34dp"
         android:textStyle="normal|bold"
+        android:textColor="@color/birugaris"
         android:layout_above="@+id/txtUsername"
         android:layout_alignLeft="@+id/txtUsername"
-        android:layout_alignStart="@+id/txtUsername"
-        android:textColor="@color/birugaris" />
+        android:layout_alignStart="@+id/txtUsername" />
 </RelativeLayout>

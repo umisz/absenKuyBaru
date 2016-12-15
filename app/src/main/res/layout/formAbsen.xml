@@ -31,7 +31,8 @@
         android:id="@+id/nrp"
         android:layout_below="@+id/namaAng"
         android:layout_alignLeft="@+id/spinnerKyu"
-        android:layout_alignStart="@+id/spinnerKyu" />
+        android:layout_alignStart="@+id/spinnerKyu"
+        android:inputType="number" />
 
     <Spinner
         android:textColor="@color/ijotua"

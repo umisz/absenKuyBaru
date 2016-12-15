@@ -4,7 +4,7 @@ package com.example.imul.absenkuybaru;
  * Created by LENOVO on 11/28/2016.
  */
 
-//ini gaperlu kalo cuman login dummy
+
 
 //public class Contact {
 //    String uname, pass, confpass;

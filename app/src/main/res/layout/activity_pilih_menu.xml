@@ -21,26 +21,27 @@
         android:layout_below="@+id/formAbsensi"
         android:layout_centerHorizontal="true" />
 
+
     <TextView
         android:textColor="@color/birugaris"
         android:text="Menu Absensi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
         android:id="@+id/textView6"
-        android:textSize="30sp"
+        android:layout_marginTop="180dp"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
         android:textStyle="normal|bold" />
 
     <Button
+        android:layout_marginTop="20dp"
         android:background="@color/ijolingkaran"
         android:textColor="@color/ijotua"
         android:text="Form Absensi"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:id="@+id/formAbsensi"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView6"
         android:layout_alignLeft="@+id/cekAbsen"
         android:layout_alignStart="@+id/cekAbsen" />
 

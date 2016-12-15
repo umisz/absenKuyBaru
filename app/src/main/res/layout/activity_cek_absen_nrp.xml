@@ -40,6 +40,7 @@
 
     <TextView
         android:text=""
+        android:scrollbars = "vertical"
         android:layout_alignLeft="@+id/etNrp"
         android:layout_alignStart="@+id/etNrp"
         android:textColor="@color/ijotua"

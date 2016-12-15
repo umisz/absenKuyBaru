@@ -61,8 +61,7 @@ public class FormAbsen extends Activity {
                 if (!namaAng.equals("") && !nrp.equals("") && !kyu.equals("") && !status.equals("")) {
                     Absen absen = new Absen(namaAng, nrp, kyu, status);
                     loginDatabaseAdapter.createAbsen(absen);
-                    Toast.makeText(getApplicationContext(), "Absensi berhasil"
-                            + "\n Spinner Kyu : " + kyu, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Absensi berhasil", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Semua kolom wajib diisi", Toast.LENGTH_SHORT).show();
                 }

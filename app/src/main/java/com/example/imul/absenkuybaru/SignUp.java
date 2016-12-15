@@ -21,6 +21,7 @@ public class SignUp extends Activity {
     Button btnCreateAccount;
 
     LoginDatabaseAdapter loginDatabaseAdapter;
+    LoginBaru loginBaru;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +44,16 @@ public class SignUp extends Activity {
                 String password = editPassBaru.getText().toString();
                 String confirmPass = editConfPassBaru.getText().toString();
 
-                if(!userName.equals("") && !password.equals("") && !confirmPass.equals("")) {
-                    loginDatabaseAdapter.insertEntry(userName, password);
-                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_SHORT);
+                if(!userName.equals("") && !password.equals("") && confirmPass.equals(password)) {
+                    LoginBaru loginBaru = new LoginBaru(userName, password);
+                    loginDatabaseAdapter.insertEntry(loginBaru);
+                    Toast.makeText(getApplicationContext(), "Account Successfully Created", Toast.LENGTH_SHORT).show();
                     Intent b = new Intent(SignUp.this, Login.class);
                     startActivity(b);
 
+                }
+                else if(!confirmPass.equals(password)) {
+                    Toast.makeText(getApplicationContext(), "Password tidak cocok", Toast.LENGTH_SHORT).show();
                 }
 
                 else {

@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class FormAbsen extends Activity {
 
-    EditText inputNama, inputTgl, inputNRP;
+    EditText inputNama, inputNRP;
     private Button btnAbsen;
     private Spinner spinnerKyu;
     private RadioGroup radioGroup;
@@ -40,6 +40,7 @@ public class FormAbsen extends Activity {
 
 
 
+
         btnAbsen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,21 +51,27 @@ public class FormAbsen extends Activity {
 
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(selectedId);
-                String status = radioButton.getText().toString();
+
+                if(selectedId != -1) {
+                    String status = radioButton.getText().toString();
+                    System.out.println(status);
+
+                    if (!namaAng.equals("") && !nrp.equals("") && !kyu.equals("") && !status.equals(null)) {
+                        Absen absen = new Absen(namaAng, nrp, kyu, status);
+                        loginDatabaseAdapter.createAbsen(absen);
+                        Toast.makeText(getApplicationContext(), "Absensi berhasil", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Semua kolom wajib diisi", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Semua kolom wajib diisi", Toast.LENGTH_SHORT).show();
+                }
 
                 System.out.println(namaAng);
                 System.out.println(kyu);
                 System.out.println(nrp);
-                System.out.println(status);
 
-
-                if (!namaAng.equals("") && !nrp.equals("") && !kyu.equals("") && !status.equals("")) {
-                    Absen absen = new Absen(namaAng, nrp, kyu, status);
-                    loginDatabaseAdapter.createAbsen(absen);
-                    Toast.makeText(getApplicationContext(), "Absensi berhasil", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Semua kolom wajib diisi", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

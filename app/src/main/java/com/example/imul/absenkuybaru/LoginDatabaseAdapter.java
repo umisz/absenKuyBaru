@@ -177,7 +177,7 @@ public class LoginDatabaseAdapter extends SQLiteOpenHelper {
     public Cursor getJumlah(String tgl) {
         SQLiteDatabase db;
         db = this.getWritableDatabase();
-        Cursor d = db.rawQuery("SELECT * FROM absen WHERE " + KEY_CREATED_AT + " like '" + tgl+"'", null);
+        Cursor d = db.rawQuery("SELECT * FROM absen WHERE TRIM(" + (KEY_CREATED_AT) + ") like '" + tgl+"'", null);
 
         return d;
     }

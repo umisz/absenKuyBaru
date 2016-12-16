@@ -45,15 +45,15 @@ public class SignUp extends Activity {
                 String confirmPass = editConfPassBaru.getText().toString();
 
                 if(!userName.equals("") && !password.equals("") && confirmPass.equals(password)) {
-                    LoginBaru loginBaru = new LoginBaru(userName, password);
-                    loginDatabaseAdapter.insertEntry(loginBaru);
-                    Toast.makeText(getApplicationContext(), "Account Successfully Created", Toast.LENGTH_SHORT).show();
-                    Intent b = new Intent(SignUp.this, Login.class);
-                    startActivity(b);
-
-                }
-                else if(!confirmPass.equals(password)) {
-                    Toast.makeText(getApplicationContext(), "Password tidak cocok", Toast.LENGTH_SHORT).show();
+                    if(!confirmPass.equals(password)) {
+                        Toast.makeText(getApplicationContext(), "Password tidak cocok", Toast.LENGTH_SHORT).show();
+                    } else {
+                        LoginBaru loginBaru = new LoginBaru(userName, password);
+                        loginDatabaseAdapter.insertEntry(loginBaru);
+                        Toast.makeText(getApplicationContext(), "Account Successfully Created", Toast.LENGTH_SHORT).show();
+                        Intent b = new Intent(SignUp.this, Login.class);
+                        startActivity(b);
+                    }
                 }
 
                 else {
